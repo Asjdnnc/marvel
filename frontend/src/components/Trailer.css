@@ -8,8 +8,20 @@
     border-radius: 20px;
 }
 .music{
-    display: flex;
-    margin-left: 70px;
-    align-items: center;
+    margin-left: 120px;
     padding-bottom: 100px;
+}
+.card{
+  width:200px;
+  padding: 20px;
+  text-decoration: none;
+  background: #1f1f1f;
+  border-radius: 15px;
+  border-radius: 6px;
+  color: white;
+  margin-left: 20px;
+  border: "1px solid grey",
+}
+.card img{
+    height:250px
 }

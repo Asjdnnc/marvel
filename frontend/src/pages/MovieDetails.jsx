@@ -30,7 +30,7 @@ export default function MovieDetails() {
           boxShadow:"20px"
         }}></img>
       </div>
-      <div style={{marginLeft:"2%",paddingBottom:"4px",width:"60%",fontSize:"20px"} }>
+      <div style={{marginLeft:"3%",paddingBottom:"4px",width:"60%",fontSize:"20px"} }>
       <h1 style={{textDecoration:"underline"}}>{movie.title}</h1>
       <p style={{color:"gray"}}>{movie.overview}</p>
       <p>Rating: {movie.vote_average} <i class="fa-solid fa-star" style={{color:"#e8b10c"}}></i></p>

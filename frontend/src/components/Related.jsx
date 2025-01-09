@@ -12,7 +12,7 @@ export default function Related({ movieId }) {
       .catch(error => console.error('Error fetching related movies:', error));
   }, [movieId]);
   return(
-    <div style={{marginLeft:"7%"}}>
+    <div style={{marginLeft:"4%"}}>
          <h1 style={{marginLeft:"5%",fontSize:"35px",textDecoration:"underline"}}>Related Movies</h1>
          <div style={{ display: "flex"}}>
         {relatedMovies.map((movie) => (

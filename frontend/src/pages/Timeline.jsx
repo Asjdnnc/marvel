@@ -23,7 +23,7 @@ export default function Timeline() {
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       <header style={{ textAlign: "center", padding: "20px" }}>
-        <h1 style={{ fontSize: "55px", margin: "inherit" }}>Timeline for MCU</h1>
+        <h1 style={{ fontSize: "55px", margin: "inherit"}}>Timeline for MCU</h1>
       </header>
       <p style={{ padding: "70px", fontSize: "20px", color: "#666666", margin: "inherit" }}>
       Watching the Marvel Cinematic Universe (MCU) movies in chronological 
