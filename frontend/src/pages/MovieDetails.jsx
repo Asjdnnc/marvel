@@ -31,9 +31,9 @@ export default function MovieDetails() {
         }}></img>
       </div>
       <div style={{marginLeft:"3%",paddingBottom:"4px",width:"60%",fontSize:"20px"} }>
-      <h1 style={{textDecoration:"underline"}}>{movie.title}</h1>
+      <h1>{movie.title}</h1>
       <p style={{color:"gray"}}>{movie.overview}</p>
-      <p>Rating: {movie.vote_average} <i class="fa-solid fa-star" style={{color:"#e8b10c"}}></i></p>
+      <p>Rating: {movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i></p>
       <p>Director: {movie.director}</p>
       <p>Cast: 
       <ul>

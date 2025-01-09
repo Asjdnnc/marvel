@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{backgroundColor:"black"}}>
+    <div style={{backgroundColor:"black",paddingBottom:"20px"}}>
       {/* Search Bar */}
       <div style={{ textAlign: "center", padding: "10px",color:"white",marginBottom:"10px"}}>
       <span style={{fontSize:"80px",margin:"20px",color:"#e62429"}}>Marvel Movies</span><br/><br/>
@@ -88,7 +88,7 @@ export default function Home() {
                 }}
               />
               <p className="text" style={{fontSize:"21px"}}>{movie.title}</p>
-              <p className="text" style={{color:"grey"}}> 
+              <p className="text" style={{color:"lightgrey"}}> 
               {`${new Date(movie.release_date).toLocaleString('default', { month: 'long' })} ${new Date(movie.release_date).getFullYear()}`}
               </p>
             </a>

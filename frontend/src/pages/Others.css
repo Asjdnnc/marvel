@@ -1,0 +1,109 @@
+/* General container styling */
+.page-container {
+    background-color: black;
+    color: white;
+    padding-bottom: 20px;
+  }
+  
+  /* Search bar container */
+  .search-container {
+    text-align: center;
+    padding: 20px;
+    padding-top: 50px;
+    color: white;
+  }
+  
+  .search-input {
+    padding: 10px;
+    width: 100%;
+    max-width: 700px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 1px solid #ccc;
+  }
+  
+  /* Movies grid */
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 100px;
+  }
+  
+  .movie-card {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #151515;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    text-align: center;
+    height: 350px;
+    object-fit: fill;
+    opacity: 1;
+    border-radius: 15px;
+  }
+  
+  .movie-card .text {
+    font-size: 21px;
+  }
+  
+  .movie-card .release-date {
+    color: lightgrey;
+  }
+  
+  /* Not found image styling */
+  .not-found-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .not-found-image {
+    height: 600px;
+    width: 750px;
+    margin-top: 20px;
+  }
+  
+  /* Movie details container */
+  .details-container {
+    background-color: black;
+    color: white;
+    min-height: 75vh;
+    padding: 20px;
+    display: flex;
+    margin-left: 100px;
+    margin-top: 60px;
+  }
+  
+  .details {
+    text-align: left;
+    font-size: 20px;
+    width: 50%;
+    transform: scale(1.1);
+    opacity: 1;
+    color: white;
+  }
+  .img {
+    width: 350px;
+    height: 500px;
+    border-radius: 10px;
+    margin: 3% 0 20px 20%;
+  }
+  

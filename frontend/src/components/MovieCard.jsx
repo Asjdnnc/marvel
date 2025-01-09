@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Trailer.css";
 export default function MovieCard({ movie }) {
+  if (!movie || !movie.title) return null;
   return (
     <a className="card" href={`/movies/${movie._id}`}>
       <img
