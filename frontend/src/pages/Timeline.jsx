@@ -90,7 +90,7 @@ export default function Timeline() {
                 ) : (
                   <>
                     <div className="left-content" style={{ display: "flex",justifyContent:"flex-start", width: "50%" }}>
-                      <div className="details">
+                      <div className="details-left">
                         <ul className="list-left">
                           <li>{movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i></li>
                           <li>{movie.director}</li>

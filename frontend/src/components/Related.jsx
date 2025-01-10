@@ -13,7 +13,7 @@ export default function Related({ movieId }) {
   }, [movieId]);
   return(
     <div style={{marginLeft:"4%"}}>
-         <h1 style={{marginLeft:"5%",fontSize:"35px",textDecoration:"underline"}}>Related Movies</h1>
+         <h1 style={{marginLeft:"5%",fontSize:"35px"}}>Related Movies</h1>
          <div style={{ display: "flex"}}>
         {relatedMovies.map((movie) => (
           <MovieCard key={movie._id} movie={movie} />

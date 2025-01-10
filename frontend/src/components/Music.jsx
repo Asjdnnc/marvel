@@ -1,7 +1,7 @@
 export default function Music({link}){
     return(
         <div style={{width:"700px"}}>
-        <h1 style={{marginLeft:"19%",fontSize:"35px",textDecoration:"underline"}}>Music</h1>
+        <h1 style={{marginLeft:"19%",fontSize:"35px"}}>Music</h1>
         <div className="music">
             <iframe style={{borderRadius:"12px"}} 
             src={link}
