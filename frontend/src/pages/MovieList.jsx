@@ -29,14 +29,14 @@ export default function Home() {
   };
 
   return (
-    <div style={{backgroundColor:"black",paddingBottom:"20px"}}>
+    <div style={{backgroundColor:"black",paddingBottom:"20px",minHeight:"110vh"}}>
       {/* Search Bar */}
       <div style={{ textAlign: "center", padding: "10px",color:"white",marginBottom:"10px"}}>
       <span style={{fontSize:"80px",margin:"20px",color:"#e62429"}}>Marvel Movies</span><br/><br/>
       <span>Discover the Marvel Cinematic Universe</span><br/><br/>
         <input
           type="text"
-          placeholder="Search for a movie..."
+          placeholder="Search for marvel movie..."
           value={searchQuery}
           onChange={handleSearch}
           style={{

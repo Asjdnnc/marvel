@@ -47,6 +47,11 @@ export default function Others() {
     setMovies(details);
   };
 
+  const handleKeyPress = async (event)=>{
+    if (event.key === 'Enter') {
+        await handleSearch();
+  }
+}
   return (
     <div className="page-container">
       <div className="search-container">
@@ -56,6 +61,7 @@ export default function Others() {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search for a movie"
           className="search-input"
+          onKeyDown={handleKeyPress}
         />
         <button onClick={handleSearch} className="search-button">
           Search &nbsp;<i className="fa-solid fa-magnifying-glass"></i>
@@ -73,8 +79,8 @@ export default function Others() {
                 </p>
               </a>
             ))
-          ) : null}
-        </div>) : null}
+          ) :  <h1>Search for movies online</h1>}
+        </div>) :null}
       {(!initial && !movies.title) ? (
         <div className="not-found-container">
           <img className="not-found-image" src="https://cdn.dribbble.com/userupload/17283851/file/original-05fe99534f82d10c30cc38661916e864.png?format=webp&resize=400x300&vertical=center" alt="Not Found" />

@@ -35,13 +35,12 @@ export default function MovieDetails() {
       <p style={{color:"gray"}}>{movie.overview}</p>
       <p>Rating: {movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i></p>
       <p>Director: {movie.director}</p>
-      <p>Cast: 
+      Cast: 
       <ul>
       {movie.cast[0].map((actor, index) => (
       <li key={index}>{actor}</li>
       ))}
       </ul>
-      </p>
       <p>Release Date: {`${new Date(movie.release_date).toLocaleString('default', { month: 'long' })} ${new Date(movie.release_date).getFullYear()}`}</p>
       <p>Runtime: {movie.runtime} mins</p>
       <p>Budget: ${movie.budget.toLocaleString()}</p>
