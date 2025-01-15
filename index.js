@@ -11,7 +11,7 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({extended:true}));
 //for connecting fronted and backend url
 app.use(cors({
-    origin: "https://marvel-frontend-j0tok1iqt-aditya-kumars-projects-1254d14b.vercel.app/",
+    origin: "https://marvel-frontend-six.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
