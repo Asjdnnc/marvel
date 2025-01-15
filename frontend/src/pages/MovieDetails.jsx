@@ -9,13 +9,17 @@ import axios from "axios";
 export default function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [loading,setloading] = useState(true);
   useEffect(() => {
     axios.get(`https://marvel-w8vq.onrender.com/api/movies/${id}`).then((response) => {
       setMovie(response.data);
+      setloading(false);
     });
   }, [id]);
-  if (!movie) return <p>Loading...</p>;
-  return (
+  if (loading){return <div style={{minHeight:"100vh",minWidth:"200vh", backgroundColor:"black",paddingTop:"200px",paddingLeft:"350px",height:"500px",width:"800px"}}>
+    <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>;
+    </div>}
+    return(
     <div style={{backgroundColor:"black" ,color:"white",marginBottom:"0px"} }>
       <div>
       <img src={movie.img2} alt={movie.title} 

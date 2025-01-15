@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Related({ movieId }) {
   const [relatedMovies, setRelatedMovies] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/movies/${movieId}/related`)
+    axios.get(`https://marvel-w8vq.onrender.com/api/movies/${movieId}/related`)
       .then(response => {
         setRelatedMovies(response.data);
       })

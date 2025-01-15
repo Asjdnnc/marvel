@@ -6,6 +6,7 @@ export default function Home() {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [loading,setloading] = useState(true);
 
   useEffect(() => {
     // Fetch movies from the backend API
@@ -14,8 +15,10 @@ export default function Home() {
       .then((response) => {
         setMovies(response.data); // Store all movies in state
         setFilteredMovies(response.data); // Initialize 
+        setloading(false);
       })
-      .catch((err) => console.error("Error fetching movies:", err));
+      .catch((err) => {console.error("Error fetching movies:", err);
+      setloading(false);})
   }, []);
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -62,7 +65,9 @@ export default function Home() {
           marginRight :"100px",
         }}
       >
-        {filteredMovies.length > 0 ? (
+        {loading?(
+          <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"400px",paddingTop:"50px",height:"500px",width:"800px"}}/>
+        ):(filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
             <a className="image2" href={`/movies/${movie._id}`}
               key={movie._id}
@@ -95,7 +100,7 @@ export default function Home() {
           ))
         ) : (
           <p style={{color:"white",fontSize:"30px"}}>No movies found.</p>
-        )}
+        ))}
       </div>
     </div>
   );

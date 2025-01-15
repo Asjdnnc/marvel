@@ -10,14 +10,17 @@ export default function Others() {
   const [movies, setMovies] = useState({});
   const [search, setSearch] = useState("");
   const [initialMovies, setInitialMovies] = useState({});
+  const [loading,setloading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://marvel-w8vq.onrender.com/api/movies")
       .then((response) => {
         setInitialMovies(response.data);
+        setloading(false);
       })
-      .catch((err) => console.error("Error fetching movies:", err));
+      .catch((err) => {console.error("Error fetching movies:", err);
+      setloading(false)});
   }, []);
 
   async function fetchMovieId(movie) {
@@ -67,7 +70,8 @@ export default function Others() {
           Search &nbsp;<i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      {initial ? (
+      {loading?(<img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"470px",paddingTop:"50px",opacity:"1",height:"600px",width:"800px"}}/>)
+      :initial ? (
         <div className="movies-grid">
           {Object.keys(initialMovies).length > 0 ? (
             Object.values(initialMovies).slice(0,10).map((movie) => (

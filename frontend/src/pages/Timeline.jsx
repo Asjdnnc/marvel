@@ -4,6 +4,7 @@ import "./TimelineComp.css";
 
 export default function Timeline() {
   const [movies, setMovies] = useState([]);
+  const [loading,setloading] = useState(true);
   let titleCond = {
     1:"The Infinity Saga: Phase One (2008-2012)",
     7:"Phase Two (2013-2015)",
@@ -16,16 +17,18 @@ export default function Timeline() {
       .then((response) => {
         const sortedMovies = response.data.sort((a, b) => a.watchOrder - b.watchOrder);
         setMovies(sortedMovies);
+        setloading(false);
       })
-      .catch((error) => console.error("Error fetching movies:", error));
+      .catch((error) => {console.error("Error fetching movies:", error);
+      setloading(false);})
   }, []);
 
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
       <header style={{ textAlign: "center", padding: "20px" }}>
-        <h1 style={{ fontSize: "55px", margin: "inherit"}}>Timeline for MCU</h1>
+        <h1 style={{ fontSize: "55px"}}>Timeline for MCU</h1>
       </header>
-      <p style={{ padding: "70px", fontSize: "20px", color: "#666666", margin: "inherit" }}>
+      <p style={{ fontSize: "20px", color: "#666666",paddingLeft:"100px",paddingRight:"100px"}}>
       Watching the Marvel Cinematic Universe (MCU) movies in chronological 
         timeline order allows you to experience the story as it unfolds in the
         Marvel Universe itself, making the journey more immersive and emotionally
@@ -41,7 +44,9 @@ export default function Timeline() {
       </p>
       <section className="design-section">
         <div className="timeline">
-          {movies.length > 0 ? (
+          {loading?(
+            <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>)
+            :(movies.length > 0 ? (
             movies.map((movie, index) => (
             <div>
               <div className="title" >
@@ -128,7 +133,7 @@ export default function Timeline() {
             <p style={{ textAlign: "center", color: "lightgrey", fontSize: "20px" }}>
               No movies found
             </p>
-          )}
+          ))}
         </div>
       </section>
     </div>
