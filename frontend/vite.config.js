@@ -1,16 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
+// vite.config.js
+export default {
   server: {
     proxy: {
-      // Proxy all requests starting with /api to the backend server
       '/api': {
-        target: 'https://marvel-w8vq.onrender.com', // Your backend URL
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        target: 'https://marvel-w8vq.onrender.com', //backend URL
+        changeOrigin: true, // Change the origin of the request
+        rewrite: (path) => path, 
       },
     },
   },
-});
+}
