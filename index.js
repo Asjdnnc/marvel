@@ -11,7 +11,7 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({extended:true}));
 //for connecting fronted and backend url
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://marvel-w8vq.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 

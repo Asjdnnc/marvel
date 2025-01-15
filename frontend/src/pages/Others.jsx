@@ -13,7 +13,7 @@ export default function Others() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/movies")
+      .get("https://marvel-w8vq.onrender.com/api/movies")
       .then((response) => {
         setInitialMovies(response.data);
       })

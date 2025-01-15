@@ -12,7 +12,7 @@ export default function Timeline() {
     32:"Phase Five (2023-2024)"
   }
   useEffect(() => {
-    axios.get("http://localhost:8080/api/movies")
+    axios.get("https://marvel-w8vq.onrender.com/api/movies")
       .then((response) => {
         const sortedMovies = response.data.sort((a, b) => a.watchOrder - b.watchOrder);
         setMovies(sortedMovies);

@@ -10,7 +10,7 @@ export default function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/movies/${id}`).then((response) => {
+    axios.get(`https://marvel-w8vq.onrender.com/api/movies/${id}`).then((response) => {
       setMovie(response.data);
     });
   }, [id]);

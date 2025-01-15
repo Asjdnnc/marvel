@@ -10,10 +10,10 @@ export default function Home() {
   useEffect(() => {
     // Fetch movies from the backend API
     axios
-      .get("http://localhost:8080/api/movies") // Ensure this matches your backend API route
+      .get("https://marvel-w8vq.onrender.com/api/movies") // Ensure this matches your backend API route
       .then((response) => {
         setMovies(response.data); // Store all movies in state
-        setFilteredMovies(response.data); // Initialize filteredMovies with all movies
+        setFilteredMovies(response.data); // Initialize 
       })
       .catch((err) => console.error("Error fetching movies:", err));
   }, []);
