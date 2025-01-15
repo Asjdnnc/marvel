@@ -18,7 +18,7 @@ app.use(cors({
 
 //connect to mongoDB
 mongoose.connect(process.env.dburl)
-.then(() => console.log('MongoDB Connected'))
+.then(() => console.log('database Connected'))
 .catch((err) => console.log(err));
 
 // Routes
