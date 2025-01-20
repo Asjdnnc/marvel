@@ -52,7 +52,7 @@ export default function Home() {
             border: "1px solid #ccc",
             borderRadius: "4px",
           }}
-        />&nbsp;&nbsp;<i class="fa-solid fa-magnifying-glass"></i>
+        />&nbsp;&nbsp;<i className="fa-solid fa-magnifying-glass"></i>
         <br/>
       </div>
       {/* Movies List */}
@@ -66,7 +66,8 @@ export default function Home() {
         }}
       >
         {loading?(
-          <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"400px",paddingTop:"50px",height:"500px",width:"800px"}}/>
+           <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"400px",paddingTop:"50px",height:"500px",width:"800px"}}/>
+          // <p style={{color:"white",fontSize:"50px",textAlign:"center"}}>loading.....</p>
         ):(filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
             <a className="image2" href={`/movies/${movie._id}`}

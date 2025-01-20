@@ -17,7 +17,7 @@ export default function MovieDetails() {
     });
   }, [id]);
   if (loading){return <div style={{minHeight:"100vh",minWidth:"200vh", backgroundColor:"black",paddingTop:"200px",paddingLeft:"350px",height:"500px",width:"800px"}}>
-    <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>;
+    <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>;
     </div>}
     return(
     <div style={{backgroundColor:"black" ,color:"white",marginBottom:"0px"} }>

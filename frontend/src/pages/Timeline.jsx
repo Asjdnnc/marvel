@@ -45,7 +45,7 @@ export default function Timeline() {
       <section className="design-section">
         <div className="timeline">
           {loading?(
-            <img src="https://i.makeagif.com/media/10-01-2020/tUVFO5.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>)
+            <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>)
             :(movies.length > 0 ? (
             movies.map((movie, index) => (
             <div>
