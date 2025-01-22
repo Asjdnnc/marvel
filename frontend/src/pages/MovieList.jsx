@@ -14,6 +14,7 @@ export default function Home() {
       .get("https://marvel-w8vq.onrender.com/api/movies") // Ensure this matches your backend API route
       .then((response) => {
         setMovies(response.data); // Store all movies in state
+        console.log(response.data);
         setFilteredMovies(response.data); // Initialize 
         setloading(false);
       })
