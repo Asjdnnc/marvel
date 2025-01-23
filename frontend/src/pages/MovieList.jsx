@@ -14,7 +14,6 @@ export default function Home() {
       .get("https://marvel-w8vq.onrender.com/api/movies") // Ensure this matches your backend API route
       .then((response) => {
         setMovies(response.data); // Store all movies in state
-        console.log(response.data);
         setFilteredMovies(response.data); // Initialize 
         setloading(false);
       })
@@ -69,7 +68,7 @@ export default function Home() {
         {loading?(
            <div>
            <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"400px",paddingTop:"50px",height:"500px",width:"800px"}}/>
-           <p style={{color:"white",fontSize:"30px",textAlign:"center"}}>loading...</p>
+           <p style={{color:"white",fontSize:"40px",marginLeft:"100px"}}>loading...</p>
            </div>
         ):(filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
