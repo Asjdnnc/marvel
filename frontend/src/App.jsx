@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MovieList/>} />
-        <Route path="/api/movies/:id" element={<MovieDetails />} />
+        <Route path="/movies/:id" element={<MovieDetails />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/others" element={<Others/>}/>
       </Routes>
