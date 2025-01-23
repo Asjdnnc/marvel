@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     // Fetch movies from the backend API
     axios
-      .get("https://marvel-w8vq.onrender.com/api/movies") // Ensure this matches your backend API route
+      .get("https://marvel-w8vq.onrender.com/api/movies") //  backend API route
       .then((response) => {
         setMovies(response.data); // Store all movies in state
         setFilteredMovies(response.data); // Initialize 

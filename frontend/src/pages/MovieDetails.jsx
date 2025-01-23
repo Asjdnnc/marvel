@@ -16,8 +16,8 @@ export default function MovieDetails() {
       console.log(response.data)
       setMovie(response.data);
       setloading(false);
-    });
-  }, [id]);
+    }).catch((err) => {console.error("Error fetching movies details:", err);})
+    }, [id]);
   if (loading){return <div style={{minHeight:"100vh",minWidth:"200vh", backgroundColor:"black",paddingTop:"200px",paddingLeft:"350px",height:"500px",width:"800px"}}>
     <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>;
     </div>}
