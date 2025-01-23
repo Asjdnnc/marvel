@@ -142,7 +142,6 @@ async function fetchMovieTrailer(movieId) {
             <p>Revenue: ${movies.revenue.toLocaleString()}</p>
             <p>Vote Average: {movies.vote_average} <i className="fa-solid fa-star" style={{ color: "#e8b10c" }}></i></p>
             <p>Production Companies: {movies.production_companies.map((company) => company.name).join(', ')}</p>
-          {console.log(movies)}
           </div>
           <img src={`https://image.tmdb.org/t/p/w500${movies.poster_path}`} alt={movies.title} className="img" />
         </div>
