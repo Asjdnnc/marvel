@@ -1,5 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const path = require("path");
 const dotenv = require("dotenv")
 const cors = require("cors")
 const app = express();
@@ -25,9 +26,22 @@ mongoose.connect(process.env.dburl)
 const movieRoutes = require("./routes/movieRoutes.js");
 app.use("/api/movies", movieRoutes);
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "frontend")));
+
+// Catch-all route for frontend (React Router)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
+
 app.get("/",(req,res)=>{
     res.send("Hello from backend");
 })
+// Error-handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: "Something went wrong", error: err.message });
+  });
 
 app.listen(port,()=>{
     console.log("app started at port 8080")
