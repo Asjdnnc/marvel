@@ -73,7 +73,7 @@ export default function Home() {
            </div>
         ):(filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
-            <a className="image2" href={`/movies/${movie._id}`}
+            <a className="image2" href={`/api/movies/${movie._id}`}
               key={movie._id}
               style={{
                 border: "1px solid grey",
