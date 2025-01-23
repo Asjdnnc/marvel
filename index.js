@@ -26,14 +26,6 @@ mongoose.connect(process.env.dburl)
 const movieRoutes = require("./routes/movieRoutes.js");
 app.use("/api/movies", movieRoutes);
 
-// // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, "frontend")));
-
-// // Catch-all route for frontend (React Router)
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "frontend", "index.html"));
-// });
-
 app.get("/",(req,res)=>{
     res.send("Hello from backend");
 })
