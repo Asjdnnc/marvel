@@ -14,7 +14,6 @@ const getMovies = async (req, res) => {
 const getMovieById = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("search for movie id",id);
     const movie = await Movie.findById(id);
     if (!movie) {
       return res.status(404).json({ message: "Movie not found" });
