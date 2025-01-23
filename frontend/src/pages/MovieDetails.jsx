@@ -11,7 +11,9 @@ export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
   const [loading,setloading] = useState(true);
   useEffect(() => {
-    axios.get(`/api/movies/${id}`).then((response) => {
+    axios.get(`https://marvel-w8vq.onrender.com/api/movies/${id}`).then((response) => {
+      console.log(id);
+      console.log(response.data)
       setMovie(response.data);
       setloading(false);
     });
