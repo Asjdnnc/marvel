@@ -19,7 +19,7 @@ export default function MovieDetails() {
     }, [id]);
   if (loading){return <div style={{minHeight:"100vh",minWidth:"200vh", backgroundColor:"black",paddingTop:"200px",paddingLeft:"330px",height:"500px",width:"800px"}}>
     <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"150px",height:"500px",width:"800px"}}/>;
-    <p style={{color:"white",fontSize:"40px",marginLeft:"50%"}}>loading...</p>
+    <p style={{color:"white",fontSize:"40px",marginLeft:"20%"}}>loading...</p>
     </div>}
     return(
     <div style={{backgroundColor:"black" ,color:"white",marginBottom:"0px"} }>
