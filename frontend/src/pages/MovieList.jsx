@@ -68,7 +68,7 @@ export default function Home() {
         {loading?(
            <div>
            <img src="https://cdn.dribbble.com/users/29051/screenshots/1671982/loading-anim-dribbble.gif" style={{paddingLeft:"400px",paddingTop:"50px",height:"500px",width:"800px"}}/>
-           <p style={{color:"white",fontSize:"40px",marginLeft:"50%"}}>loading...</p>
+           <p style={{color:"white",fontSize:"50px",marginLeft:"60%"}}>loading...</p>
            </div>
         ):(filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
@@ -102,7 +102,10 @@ export default function Home() {
             </a>
           ))
         ) : (
+          <>
           <p style={{color:"white",fontSize:"30px"}}>No movies found.</p>
+          <p style={{color:"white",fontSize:"30px"}}>Search the movie in <b>OTHERS</b> section</p>
+          </>
         ))}
       </div>
     </div>
