@@ -43,9 +43,9 @@ export default function Header() {
             fontWeight: "bold",
             fontSize: "18px",
           }}
-          to="/about"
+          to="/"
         >
-          About
+         Home
         </Link>
         <Link
           style={{
@@ -54,9 +54,9 @@ export default function Header() {
             fontWeight: "bold",
             fontSize: "18px",
           }}
-          to="/host"
+          to="/timeline"
         >
-          Host
+          Timeline
         </Link>
         <Link
           style={{
@@ -65,9 +65,9 @@ export default function Header() {
             fontWeight: "bold",
             fontSize: "18px",
           }}
-          to="/services"
+          to="/others"
         >
-          Services
+          Others
         </Link>
       </div>
     </nav>
