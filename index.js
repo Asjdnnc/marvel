@@ -11,6 +11,7 @@ dotenv.config()
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({extended:true}));
 //for connecting fronted and backend url
+app.use(express.static(path.join(__dirname, "frontend","dist")));
 app.use(cors({
      origin:"*", //["https://marvel-phi-three.vercel.app","https://marvel-fpk3jsai0-aditya-kumars-projects-1254d14b.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -28,6 +29,9 @@ app.use("/api/movies", movieRoutes);
 
 app.get("/",(req,res)=>{
     res.send("Hello from backend");
+})
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname, "frontend","dist","index.html"));
 })
 // Error-handling middleware
 app.use((err, req, res, next) => {
