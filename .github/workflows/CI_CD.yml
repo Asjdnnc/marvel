@@ -23,11 +23,11 @@ jobs:
     - uses: actions/checkout@v4
     - name: Restore .env
       run: |
-        if [ -f /tmp/env_backup ]; then mv /tmp/env_backup; .env; fi
+        if [ -f /tmp/env_backup ]; then mv /tmp/env_backup .env; fi
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run : sudo pm2 restart backend
+    - run: sudo pm2 restart backend
