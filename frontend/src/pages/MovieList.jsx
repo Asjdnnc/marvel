@@ -84,7 +84,7 @@ export default function Home() {
                 paddingLeft: "400px",
                 paddingTop: "50px",
                 height: "500px",
-                width: "800px",
+                width: "600px",
               }}
             />
             <p style={{ color: "white", fontSize: "60px", marginLeft: "90%" }}>loading...</p>
