@@ -24,10 +24,18 @@ jobs:
     - name: Restore .env
       run: |
         if [ -f /tmp/env_backup ]; then mv /tmp/env_backup .env; fi
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: 'npm' 
+        
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: |
+        npm ci
+        npm run build   
+    
     - run: npm ci
     - run: sudo pm2 restart backend
