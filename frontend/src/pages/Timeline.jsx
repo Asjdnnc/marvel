@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./TimelineComp.css";
+import { postDeadpoolTimelineEntries } from "../data/mcuSpotlight";
 
 export default function Timeline() {
   const [movies, setMovies] = useState([]);
@@ -10,18 +12,48 @@ export default function Timeline() {
     7:"Phase Two (2013-2015)",
     13:"Phase Three (2016-2019)",
     24:"The Multiverse Saga: Phase Four (2021-2022)",
-    32:"Phase Five (2023-2024)"
+    32:"Phase Five (2023-2024)",
+    35:"Phase Six (2025-2026)"
   }
   useEffect(() => {
     axios.get("https://marvel-w8vq.onrender.com/api/movies")
       .then((response) => {
-        const sortedMovies = response.data.sort((a, b) => a.watchOrder - b.watchOrder);
+        const timelineMap = new Map();
+
+        response.data.forEach((movie) => {
+          timelineMap.set(movie.watchOrder, movie);
+        });
+
+        postDeadpoolTimelineEntries.forEach((entry) => {
+          if (!timelineMap.has(entry.watchOrder)) {
+            timelineMap.set(entry.watchOrder, {
+              ...entry,
+            });
+          }
+        });
+
+        const sortedMovies = Array.from(timelineMap.values()).sort(
+          (a, b) => a.watchOrder - b.watchOrder
+        );
         setMovies(sortedMovies);
         setloading(false);
       })
       .catch((error) => {console.error("Error fetching movies:", error);
       setloading(false);})
   }, []);
+
+  const getVoteLabel = (movie) =>
+    typeof movie.vote_average === "number" && movie.vote_average > 0 ? (
+      <>
+        {movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i>
+      </>
+    ) : (
+      movie.vote_average || "TBA"
+    );
+  const getRuntimeLabel = (movie) => (movie.runtime ? `${movie.runtime} mins` : "Runtime TBA");
+  const getBudgetLabel = (movie) =>
+    movie.budget ? `$${movie.budget.toLocaleString()}` : "Budget TBA";
+  const getDirectorLabel = (movie) => movie.director || "Director TBA";
 
   return (
     <div style={{ backgroundColor: "black", color: "white" }}>
@@ -67,7 +99,10 @@ export default function Timeline() {
                       <p>{movie.overview}</p>
                     </div>
                     <div className="timeline-content" style={{ width: "21%", marginLeft: "18%" }}>
-                      <a href={`/movies/${movie._id}`} style={{ textDecoration: "none", color: "white" }}>
+                      <Link
+                        to={`/movies/${movie._id}`}
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
                         <img
                           src={movie.poster_path}
                           style={{ width: "100%", height: "180px", borderRadius: "5px" }}
@@ -81,14 +116,14 @@ export default function Timeline() {
                             month: "long",
                           })} ${new Date(movie.release_date).getFullYear()}`}
                         </p>
-                      </a>
+                      </Link>
                     </div>
                     <div className="details-right">
                       <ul className="list-right">
-                        <li>{movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i></li>
-                        <li>{movie.director}</li>
-                        <li>{movie.runtime} mins</li>
-                        <li>${movie.budget.toLocaleString()}</li>
+                        <li>{getVoteLabel(movie)}</li>
+                        <li>{getDirectorLabel(movie)}</li>
+                        <li>{getRuntimeLabel(movie)}</li>
+                        <li>{getBudgetLabel(movie)}</li>
                       </ul>
                     </div>
                   </>
@@ -97,14 +132,17 @@ export default function Timeline() {
                     <div className="left-content" style={{ display: "flex",justifyContent:"flex-start", width: "50%" }}>
                       <div className="details-left">
                         <ul className="list-left">
-                          <li>{movie.vote_average} <i className="fa-solid fa-star" style={{color:"#e8b10c"}}></i></li>
-                          <li>{movie.director}</li>
-                          <li>{movie.runtime} mins</li>
-                          <li>${movie.budget.toLocaleString()}</li>
+                          <li>{getVoteLabel(movie)}</li>
+                          <li>{getDirectorLabel(movie)}</li>
+                          <li>{getRuntimeLabel(movie)}</li>
+                          <li>{getBudgetLabel(movie)}</li>
                         </ul>
                       </div>
                       <div className="timeline-content" style={{ width: "100%", marginRight: "9%" }}>
-                        <a href={`/movies/${movie._id}`} style={{ textDecoration: "none", color: "white" }}>
+                        <Link
+                          to={`/movies/${movie._id}`}
+                          style={{ textDecoration: "none", color: "white" }}
+                        >
                           <img
                             src={movie.poster_path}
                             style={{ width: "100%", height: "180px", borderRadius: "5px" }}
@@ -118,7 +156,7 @@ export default function Timeline() {
                               month: "long",
                             })} ${new Date(movie.release_date).getFullYear()}`}
                           </p>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="timeline-details" style={{ width: "35%",marginLeft:"18%" }} id={`details-${movie._id}`}>

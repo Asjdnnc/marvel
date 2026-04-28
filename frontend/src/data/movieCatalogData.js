@@ -1,0 +1,108 @@
+const latestMovieCatalogData = [
+  {
+    _id: "local-35",
+    title: "Captain America: Brave New World",
+    release_date: "2025-02-12",
+    overview:
+      "After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
+    poster_path: "https://image.tmdb.org/t/p/w500/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg",
+    img2: "https://image.tmdb.org/t/p/original/8eifdha9GQeZAkexgtD45546XKx.jpg",
+    trailer: "https://www.youtube.com/embed/t8MgEthtJQU",
+    music:
+      "https://open.spotify.com/embed/playlist/3e8kWcCuI1IpIFU4SxaFx6?utm_source=generator&theme=0",
+    vote_average: 5.978,
+    genres: ["Action", "Thriller", "Science Fiction"],
+    watchOrder: 35,
+    runtime: 119,
+    budget: 180000000,
+    revenue: 415101577,
+    director: "Julius Onah",
+    cast: [
+      "Anthony Mackie as Sam Wilson / Captain America",
+      "Harrison Ford as President Thaddeus Ross",
+      "Danny Ramirez as Joaquin Torres",
+      "Shira Haas as Ruth Bat-Seraph",
+    ],
+    isLocal: true,
+  },
+  {
+    _id: "local-36",
+    title: "Thunderbolts*",
+    release_date: "2025-04-30",
+    overview:
+      "After finding themselves ensnared in a death trap, seven disillusioned castoffs must embark on a dangerous mission that will force them to confront the darkest corners of their pasts.",
+    poster_path: "https://image.tmdb.org/t/p/w500/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg",
+    img2: "https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg",
+    trailer: "https://www.youtube.com/embed/3wdjhYesC_Y",
+    music:
+      "https://open.spotify.com/embed/playlist/3e8kWcCuI1IpIFU4SxaFx6?utm_source=generator&theme=0",
+    vote_average: 7.285,
+    genres: ["Action", "Science Fiction", "Adventure"],
+    watchOrder: 36,
+    runtime: 127,
+    budget: 180000000,
+    revenue: 382436917,
+    director: "Jake Schreier",
+    cast: [
+      "Florence Pugh as Yelena Belova",
+      "Sebastian Stan as Bucky Barnes",
+      "Julia Louis-Dreyfus as Valentina Allegra de Fontaine",
+      "Lewis Pullman as Robert Reynolds",
+    ],
+    isLocal: true,
+  },
+  {
+    _id: "local-37",
+    title: "The Fantastic 4: First Steps",
+    release_date: "2025-07-23",
+    overview:
+      "Against the vibrant backdrop of a 1960s-inspired, retro-futuristic world, Marvel's First Family is forced to balance their roles as heroes with the strength of their family bond, while defending Earth from a ravenous space god called Galactus and his enigmatic Herald, Silver Surfer.",
+    poster_path: "https://image.tmdb.org/t/p/w500/abqOz6EL3yXyOOafCPZxjL1M5bQ.jpg",
+    img2: "https://image.tmdb.org/t/p/original/s94NjfKkcSczZ1FembwmQZwsuwY.jpg",
+    trailer: "https://www.youtube.com/embed/cPRk4KyB2AI",
+    music:
+      "https://open.spotify.com/embed/playlist/3e8kWcCuI1IpIFU4SxaFx6?utm_source=generator&theme=0",
+    vote_average: 6.959,
+    genres: ["Science Fiction", "Adventure", "Action"],
+    watchOrder: 37,
+    runtime: 115,
+    budget: 200000000,
+    revenue: 521858728,
+    director: "Matt Shakman",
+    cast: [
+      "Pedro Pascal as Reed Richards / Mister Fantastic",
+      "Vanessa Kirby as Sue Storm / Invisible Woman",
+      "Ebon Moss-Bachrach as Ben Grimm / The Thing",
+      "Joseph Quinn as Johnny Storm / Human Torch",
+    ],
+    isLocal: true,
+  },
+  {
+    _id: "local-38",
+    title: "Avengers: Doomsday",
+    release_date: "2026-12-16",
+    overview:
+      "Beloved heroes from three distinct universes are set on a deadly collision course and face an existential threat unlike anything they've ever encountered.",
+    poster_path: "https://image.tmdb.org/t/p/w500/8HkIe2i4ScpCkcX9SzZ9IPasqWV.jpg",
+    img2: "https://image.tmdb.org/t/p/original/4OZznMYFmQPP4orKgbLaWRyYmBb.jpg",
+    trailer: "https://www.youtube.com/embed/wJeE8419CPU",
+    music:
+      "https://open.spotify.com/embed/playlist/3e8kWcCuI1IpIFU4SxaFx6?utm_source=generator&theme=0",
+    vote_average: 0,
+    genres: ["Science Fiction", "Action", "Adventure"],
+    watchOrder: 38,
+    runtime: 0,
+    budget: 0,
+    revenue: 0,
+    director: "Joe Russo, Anthony Russo",
+    cast: [
+      "Robert Downey Jr. as Victor von Doom / Doctor Doom",
+      "Chris Evans as Steve Rogers / Captain America",
+      "Chris Hemsworth as Thor",
+      "Pedro Pascal as Reed Richards / Mr. Fantastic",
+    ],
+    isLocal: true,
+  },
+];
+
+export default latestMovieCatalogData;

@@ -1,0 +1,180 @@
+.spotlight-shell {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  padding: 0 16px;
+}
+
+.spotlight-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background:
+    radial-gradient(circle at top, rgba(230, 36, 41, 0.24), transparent 40%),
+    linear-gradient(135deg, #171717, #080808 62%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.spotlight-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: white;
+}
+
+.spotlight-copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.spotlight-copy p {
+  margin: 0;
+  color: #d6d6d6;
+  line-height: 1.55;
+}
+
+.spotlight-badge {
+  width: fit-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(230, 36, 41, 0.2);
+  border: 1px solid rgba(230, 36, 41, 0.5);
+  color: #ff9ca1;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spotlight-date {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.spotlight-link {
+  width: fit-content;
+  margin-top: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #e62429;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.spotlight-poster {
+  width: min(360px, 100%);
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.next-release-panel {
+  min-height: 420px;
+}
+
+.countdown-chip {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: rgba(145, 255, 183, 0.12);
+  border: 1px solid rgba(145, 255, 183, 0.4);
+  color: #d7ffe4;
+}
+
+.countdown-chip strong {
+  font-size: 1.6rem;
+}
+
+.progress-section {
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  padding: 0 16px;
+  color: white;
+}
+
+.progress-copy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.progress-copy strong {
+  font-size: 1rem;
+}
+
+.progress-copy span {
+  color: #aaaaaa;
+  font-size: 0.95rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e62429, #ffb347);
+  transition: width 0.25s ease;
+}
+
+.movie-grid-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.movie-card-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.watched-button {
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 14px;
+  border: 1px solid rgba(230, 36, 41, 0.6);
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.watched-button.active {
+  background: #e62429;
+}
+
+@media (max-width: 1100px) {
+  .progress-copy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .spotlight-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .spotlight-poster {
+    width: 100%;
+    max-width: 360px;
+  }
+}
