@@ -1,113 +1,150 @@
-# Marvel Project
+# Marvel Cinematic Universe Explorer
 
-A full-stack application built with the MERN stack (MongoDB, Express, React, Node.js) for exploring the Marvel Cinematic Universe (MCU). The application allows users to discover Marvel movies, track their watched progress, and view upcoming releases.
+A sleek, fully client-side web application for exploring the Marvel Cinematic Universe. Browse movies, track your watch progress, follow the MCU chronological timeline, and search any film online — all with no backend required.
+
+---
 
 ## Features
 
-- **Movie Discovery**: Browse through the collection of MCU movies.
-- **Progress Tracking**: Keep track of the MCU movies you've watched right from the home page.
-- **Countdown Timer**: Displays days remaining until upcoming major releases (e.g., Avengers: Doomsday).
-- **RESTful API**: Custom backend API to serve movie data and manage state.
+- **Movie Discovery** — Browse the complete MCU catalog with posters, ratings, cast, director, runtime, budget, and revenue.
+- **Watch Progress Tracker** — Mark movies as watched and track your progress via a visual progress bar (persisted in `localStorage`).
+- **Countdown Timer** — Live countdown to the next major MCU theatrical release.
+- **MCU Spotlight** — Featured panel on the home page highlighting the next upcoming Marvel film.
+- **Interactive Timeline** — View every MCU movie in chronological watch order, split by Phase.
+- **Online Movie Search** — Search any film (inside or outside the MCU) using the TMDB API with details and trailers.
+- **Trailer Player** — Watch embedded YouTube trailers directly from a movie detail page.
+- **Background Music Player** — Persistent Spotify-embedded music player across the session.
+- **Responsive Header** — Sticky navigation bar with smooth hover effects, fully responsive on mobile.
+
+---
 
 ## Tech Stack
 
-- **Frontend**: React (Vite), React Router
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (Mongoose)
-- **Image Hosting**: Cloudinary
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + Vite |
+| Routing | React Router v6 |
+| Styling | Vanilla CSS + FontAwesome Icons |
+| Data | Local JS catalog (no database) |
+| External API | TMDB API (online movie search only) |
+| Music | Spotify Embed |
+| Trailers | YouTube Embed |
 
-## Prerequisites
+---
 
-- Node.js (v16 or higher recommended)
-- MongoDB account/database URL
-- Cloudinary account (for image uploads)
+## Project Structure
 
-## Setup & Installation
+```
+marvelProject/
+└── frontend/
+    ├── public/
+    │   └── image/          # Local movie poster images
+    ├── src/
+    │   ├── components/     # Reusable UI components
+    │   │   ├── Header.jsx / Header.css
+    │   │   ├── Footer.jsx
+    │   │   ├── MovieCard.jsx
+    │   │   ├── Related.jsx
+    │   │   ├── Trailer.jsx / Trailer.css
+    │   │   ├── Music.jsx
+    │   │   ├── SearchBar.jsx
+    │   │   ├── ScrollToTop.jsx
+    │   │   └── SessionMusicPlayer.jsx
+    │   ├── pages/          # Route-level page views
+    │   │   ├── MovieList.jsx / MovieList.css
+    │   │   ├── MovieDetails.jsx / MovieDetails.css
+    │   │   ├── Timeline.jsx / TimelineComp.css
+    │   │   └── Others.jsx / Others.css
+    │   ├── data/           # Static data layer
+    │   │   ├── movieCatalogData.js   # Full MCU movie catalog (38+ films)
+    │   │   ├── movieCatalog.js       # Catalog helpers (getById, getRelated)
+    │   │   └── mcuSpotlight.js       # Next release & timeline entries
+    │   ├── utils/
+    │   │   └── watchedMovies.js      # localStorage read/write helpers
+    │   ├── App.jsx         # Root component with route definitions
+    │   └── main.jsx        # Vite entry point
+    ├── .env                # Environment variables (not committed)
+    ├── index.html
+    └── package.json
+```
+
+---
+
+## Getting Started
 
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/marvelProject.git
-cd marvelProject
+cd marvelProject/frontend
 ```
 
-### 2. Backend Setup
-
-Install backend dependencies:
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-Create a `.env` file in the root directory and add your MongoDB URI and Cloudinary credentials:
+### 3. Environment variables (optional)
+
+The app works fully without any API keys — all MCU movie data is local. The TMDB API is only needed for the **Others / Online Search** feature.
+
+Create a `.env` file in the `frontend/` directory:
 
 ```env
-dburl=your_mongodb_connection_string
-cloud_name=your_cloudinary_cloud_name
-api_key=your_cloudinary_api_key
-api_secret=your_cloudinary_api_secret
+VITE_API_KEY=your_tmdb_api_key
+VITE_bearerToken=your_tmdb_bearer_token
 ```
 
-### 3. Frontend Setup
+> Get free API credentials at [https://www.themoviedb.org/settings/api](https://www.themoviedb.org/settings/api)
 
-Open a new terminal, navigate to the `frontend` folder, and install dependencies:
+### 4. Run locally
 
-```bash
-cd frontend
-npm install
-```
-
-### 4. Seed the Database
-
-To populate your MongoDB database with the initial movie data, run:
-
-```bash
-node importData.js
-```
-
-*(Note: `uploadImage.js` can also be used to upload a directory of images to Cloudinary and save their URLs into the database).*
-
-## Running the Application
-
-### Development Mode
-
-**Backend**:
-In the root directory, run:
-```bash
-npm run dev
-# or manually: node index.js
-```
-The server will start on port 80 (or as configured).
-
-**Frontend**:
-In the `frontend` directory, run:
 ```bash
 npm run dev
 ```
-The React app will be served via Vite.
 
-### Production
+App will be available at **http://localhost:5173**
 
-The backend is configured to serve the built frontend from `frontend/dist`. 
-To build the frontend for production:
+---
 
+## Data Architecture
+
+The project is fully decoupled from any backend. All movie data lives in:
+
+- **`src/data/movieCatalogData.js`** — Single source of truth for all 38+ MCU movies. Add new films here.
+- **`src/data/movieCatalog.js`** — Exports the catalog with helper functions (`getLocalMovieById`, `getLocalRelatedMovies`).
+- **`src/data/mcuSpotlight.js`** — Derives the next MCU release and timeline entries from the catalog.
+
+Watch progress is stored in the browser's `localStorage` under the key `marvel-watched-movies`.
+
+---
+
+## Deployment
+
+Since this is a fully static frontend, it can be deployed to any static hosting platform:
+
+**Vercel / Netlify:**
 ```bash
-cd frontend
 npm run build
+# Deploy the generated dist/ folder
 ```
 
-Then start the Node.js server from the root directory:
-
+**GitHub Pages:**
 ```bash
-node index.js
+npm run build
+# Push the dist/ folder to your gh-pages branch
 ```
 
-## Folder Structure
+> Build output is in `frontend/dist/`. No server or database required.
 
-- `/frontend`: Contains the React/Vite application.
-- `/models`: Mongoose database schemas.
-- `/routes`: Express API route definitions.
-- `/controllers`: Logic for handling API requests.
-- `index.js`: Main entry point for the backend server.
-- `importData.js`: Script for seeding the database.
-- `uploadImage.js`: Script for uploading local images to Cloudinary.
+---
+
+## Routes
+
+| Path | Page | Description |
+|---|---|---|
+| `/` | Home | Movie grid with search and progress tracker |
+| `/movies/:id` | Movie Details | Full details, trailer, related films |
+| `/timeline` | Timeline | Chronological MCU watch order |
+| `/others` | Others | Online search via TMDB API |
