@@ -169,7 +169,7 @@ export default function Home() {
                 border: "1px solid grey",
                 borderRadius: "15px",
                 padding: "10px",
-                
+
                 backgroundColor: "#151515",
                 color: "white",
                 textDecoration: "none",
@@ -178,7 +178,7 @@ export default function Home() {
               <Link
                 to={`/movies/${movie._id}`}
                 className="movie-card-link"
-                style={{ color: "white", textDecoration: "none"}}
+                style={{ color: "white", textDecoration: "none" }}
               >
                 <img
                   src={movie.poster_path}
