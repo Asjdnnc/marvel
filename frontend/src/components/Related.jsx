@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard"
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
 
 export default function Related({ movieId, relatedMovies: localRelatedMovies }) {
   const [relatedMovies, setRelatedMovies] = useState([]);
@@ -10,11 +10,7 @@ export default function Related({ movieId, relatedMovies: localRelatedMovies }) 
       return;
     }
 
-    axios.get(`https://marvel-w8vq.onrender.com/api/movies/${movieId}/related`)
-      .then(response => {
-        setRelatedMovies(response.data);
-      })
-      .catch(error => console.error('Error fetching related movies:', error));
+    setRelatedMovies([]);
   }, [movieId, localRelatedMovies]);
   return(
     <div style={{marginLeft:"4%"}}>

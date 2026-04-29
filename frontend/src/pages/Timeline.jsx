@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import localMovieCatalog from "../data/movieCatalog";
 import "./TimelineComp.css";
 import { postDeadpoolTimelineEntries } from "../data/mcuSpotlight";
 
@@ -16,30 +16,25 @@ export default function Timeline() {
     35:"Phase Six (2025-2026)"
   }
   useEffect(() => {
-    axios.get("https://marvel-w8vq.onrender.com/api/movies")
-      .then((response) => {
-        const timelineMap = new Map();
+    const timelineMap = new Map();
 
-        response.data.forEach((movie) => {
-          timelineMap.set(movie.watchOrder, movie);
+    localMovieCatalog.forEach((movie) => {
+      timelineMap.set(movie.watchOrder, movie);
+    });
+
+    postDeadpoolTimelineEntries.forEach((entry) => {
+      if (!timelineMap.has(entry.watchOrder)) {
+        timelineMap.set(entry.watchOrder, {
+          ...entry,
         });
+      }
+    });
 
-        postDeadpoolTimelineEntries.forEach((entry) => {
-          if (!timelineMap.has(entry.watchOrder)) {
-            timelineMap.set(entry.watchOrder, {
-              ...entry,
-            });
-          }
-        });
-
-        const sortedMovies = Array.from(timelineMap.values()).sort(
-          (a, b) => a.watchOrder - b.watchOrder
-        );
-        setMovies(sortedMovies);
-        setloading(false);
-      })
-      .catch((error) => {console.error("Error fetching movies:", error);
-      setloading(false);})
+    const sortedMovies = Array.from(timelineMap.values()).sort(
+      (a, b) => a.watchOrder - b.watchOrder
+    );
+    setMovies(sortedMovies);
+    setloading(false);
   }, []);
 
   const getVoteLabel = (movie) =>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import localMovieCatalog from "../data/movieCatalog";
 import './Others.css';
 import Trailer from "../components/Trailer";
 
@@ -15,14 +15,8 @@ export default function Others() {
   const [loading,setloading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("https://marvel-w8vq.onrender.com/api/movies")
-      .then((response) => {
-        setInitialMovies(response.data);
-        setloading(false);
-      })
-      .catch((err) => {console.error("Error fetching movies:", err);
-      setloading(false)});
+    setInitialMovies(localMovieCatalog);
+    setloading(false);
   }, []);
 
   async function fetchMovieId(movie) {
@@ -97,6 +91,9 @@ async function fetchMovieTrailer(movieId) {
   return (
     <div className="page-container">
       <div className="search-container">
+        <h1 style={{textAlign:"center",color:"white",fontFamily:"Arial, Helvetica, sans-serif",paddingBottom:"15px"}}>
+        Search Movie Online
+      </h1> 
         <input
           type="text"
           value={search}

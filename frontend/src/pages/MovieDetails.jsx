@@ -5,7 +5,7 @@ import "../components/Trailer.css";
 import Trailer from "../components/Trailer";
 import Music from "../components/Music";
 import Related from "../components/Related";
-import axios from "axios";
+
 import {
   getLocalMovieById,
   getLocalRelatedMovies,
@@ -28,17 +28,10 @@ export default function MovieDetails() {
         isLocal: true,
       });
       setLocalRelatedMovies(getLocalRelatedMovies(supplementalMovie));
-      setLoading(false);
-      return;
+    } else {
+      setMovie(null);
     }
-
-    axios.get(`https://marvel-w8vq.onrender.com/api/movies/${id}`).then((response) => {
-      setMovie(response.data);
-      setLoading(false);
-    }).catch((err) => {
-      console.error("Error fetching movie details:", err);
-      setLoading(false);
-    });
+    setLoading(false);
   }, [id]);
 
   const castList = Array.isArray(movie?.cast?.[0])

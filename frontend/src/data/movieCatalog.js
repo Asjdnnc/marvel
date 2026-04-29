@@ -2,6 +2,7 @@ import latestMovieCatalogData from "./movieCatalogData";
 
 const localMovieCatalog = latestMovieCatalogData.map((movie) => ({
   ...movie,
+  _id: movie._id || `local-${movie.watchOrder}`,
   isLocal: true,
 }));
 

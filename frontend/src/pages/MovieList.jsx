@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "./MovieDetails.css";
 import "./MovieList.css";
 import {
@@ -19,29 +18,13 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch movies from the backend API
-    axios
-      .get("https://marvel-w8vq.onrender.com/api/movies") // backend API route
-      .then((response) => {
-        const apiMovies = response.data;
-        const existingTitles = new Set(
-          apiMovies.map((movie) => movie.title.toLowerCase())
-        );
-        const latestMovies = supplementalHomeMovies
-          .filter((movie) => !existingTitles.has(movie.title.toLowerCase()));
+    const mergedMovies = [...supplementalHomeMovies].sort(
+      (firstMovie, secondMovie) =>
+        new Date(secondMovie.release_date) - new Date(firstMovie.release_date)
+    );
 
-        const mergedMovies = [...apiMovies, ...latestMovies].sort(
-          (firstMovie, secondMovie) =>
-            new Date(secondMovie.release_date) - new Date(firstMovie.release_date)
-        );
-
-        setHomeMovies(mergedMovies);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching movies:", err);
-        setLoading(false);
-      });
+    setHomeMovies(mergedMovies);
+    setLoading(false);
   }, []);
 
   useEffect(() => {
